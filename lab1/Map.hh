@@ -27,7 +27,8 @@ public:
       tab[i]=map2.tab[i];
   }
 
-  int fhash(const KeyType& key);
+  int fhash(const string& key);
+  int fhash(int key);
   void insert(const KeyType& key, const ValueType& value);
   ValueType& operator[](const KeyType& key);
   void remove(const KeyType& key);
@@ -35,12 +36,19 @@ public:
 };
 
 template<typename KeyType, typename ValueType>
-int Map<KeyType,ValueType>::fhash(const KeyType& key) {
+int Map<KeyType,ValueType>::fhash(const string& key) {
   int value=0;
   for (unsigned int i=0;i<key.length();++i)
     value+=(int)key[i];
   return value%size;
 }
+
+template<typename KeyType, typename ValueType>
+int Map<KeyType,ValueType>::fhash(int key) {
+  return key%size;
+}
+
+
 
 template<typename KeyType, typename ValueType>
 void Map<KeyType,ValueType>::insert(const KeyType& key, const ValueType& value){
