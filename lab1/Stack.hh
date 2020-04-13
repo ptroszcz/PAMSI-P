@@ -6,7 +6,7 @@
 using namespace std;
 
 template <typename T>
-class Stack {
+class Stack { 
   List<T> lstack;
 public:
   /*lista zawarta w stosie wywola swoj kontruktor co ustawi 

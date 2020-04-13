@@ -4,7 +4,7 @@
 
 using namespace std;
 
-template <typename T>
+template <typename T> 
 class Node {
 
 public:
