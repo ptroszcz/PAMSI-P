@@ -278,9 +278,13 @@ void Game::WhiteCapture() {
 
 
 void Game::Computer(bool white) {
-  std::vector<Path> list=board.PossibleBlack();
+  std::vector<Path> list;
+  if (!white)
+    list=board.PossibleBlack();
+  else
+    list=board.PossibleWhite();
   /*głobokość tworzonego drzewa*/
-  int depth=4;
+  int depth=6;
   auto itbest=list.begin();
   int value;
   if (white)
